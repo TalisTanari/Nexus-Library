@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeem Code - Nexus Library</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #4b0082, #ffffff, #800080, #f5f5f5);
+            background-size: 400%;
+            animation: glitchBackground 8s ease infinite;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+
+        @keyframes glitchBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .redeem-container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .redeem-text {
+            font-family: 'Arial Black', Arial, sans-serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 
+                -0.05em 0 red,
+                0.05em 0 cyan,
+                0 0 10px rgba(255, 255, 255, 0.8);
+            animation: glitchText 1s linear infinite;
+        }
+
+        @keyframes glitchText {
+            2% { transform: translate(2px, -2px); }
+            4% { transform: translate(-2px, 2px); }
+            6% { transform: translate(0, 0); }
+            8% { transform: translate(3px, 0); }
+            10% { transform: translate(-3px, 0); }
+            12% { transform: translate(0, 0); }
+        }
+
+        .code-input {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2rem;
+            padding: 10px;
+            width: 200px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            text-align: center;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        .code-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .submit-button {
+            font-family: 'Arial Black', Arial, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: #fff;
+            background: linear-gradient(45deg, #4b0082, #800080);
+            border: 2px solid #fff;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-shadow: 
+                -0.03em 0 red,
+                0.03em 0 cyan;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: glitchText 1s linear infinite;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+            background: linear-gradient(45deg, #800080, #4b0082);
+        }
+
+        .error-message {
+            color: #f00;
+            font-size: 1rem;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="redeem-container">
+        <div class="redeem-text">Redeem Code</div>
+        <input type="text" class="code-input" maxlength="10" placeholder="Enter 10-digit code" />
+        <button class="submit-button" onclick="checkCode()">Submit</button>
+        <div class="error-message" id="errorMessage">Invalid code! Please try again.</div>
+    </div>
+
+    <script>
+        function checkCode() {
+            const code = document.querySelector('.code-input').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (code === 'Sosa123410') {
+                errorMessage.style.display = 'none';
+                spamTabs();
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        function spamTabs() {
+            // Open 15 new tabs with a delay to avoid browser blocking
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const newWindow = window.open('', '_blank');
+                    if (newWindow) {
+                        newWindow.document.write(`
+                            <!DOCTYPE html>
+                            <html lang="en">
+                            <head>
+                                <meta charset="UTF-8">
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                <title>Warning</title>
+                                <style>
+                                    body {
+                                        margin: 0;
+                                        height: 100vh;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        background: linear-gradient(45deg, #4b0082, #ffffff, #800080, #f5f5f5);
+                                        background-size: 400%;
+                                        animation: glitchBackground 8s ease infinite;
+                                        font-family: 'Arial Black', Arial, sans-serif;
+                                        color: #fff;
+                                    }
+                                    @keyframes glitchBackground {
+                                        0% { background-position: 0% 50%; }
+                                        50% { background-position: 100% 50%; }
+                                        100% { background-position: 0% 50%; }
+                                    }
+                                    .message {
+                                        font-size: 2rem;
+                                        text-transform: uppercase;
+                                        text-shadow: -0.05em 0 red, 0.05em 0 cyan, 0 0 10px rgba(255, 255, 255, 0.8);
+                                        animation: glitchText 1s linear infinite;
+                                        text-align: center;
+                                    }
+                                    @keyframes glitchText {
+                                        2% { transform: translate(2px, -2px); }
+                                        4% { transform: translate(-2px, 2px); }
+                                        6% { transform: translate(0, 0); }
+                                        8% { transform: translate(3px, 0); }
+                                        10% { transform: translate(-3px, 0); }
+                                        12% { transform: translate(0, 0); }
+                                    }
+                                </style>
+                            </head>
+                            <body>
+                                <div class="message">Your Device Isn't Safe<br>This is a joke! Your device is fine.</div>
+                            </body>
+                            </html>
+                        `);
+                        newWindow.document.close();
+                    }
+                }, i * 200); // 200ms delay between tabs
+            }
+        }
+    </script>
+</body>
+</html>
