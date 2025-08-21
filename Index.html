@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Library</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(45deg, #4b0082, #ffffff, #800080, #f5f5f5);
+            background-size: 400%;
+            animation: glitchBackground 8s ease infinite;
+        }
+
+        @keyframes glitchBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .text-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nexus-text {
+            font-family: 'Arial Black', Arial, sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            text-shadow: 
+                -0.05em 0 red,
+                0.05em 0 cyan,
+                0 0 10px rgba(255, 255, 255, 0.8);
+            animation: glitchText 1s linear infinite;
+            letter-spacing: 2px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .nexus-text span {
+            display: block;
+        }
+
+        @keyframes glitchText {
+            2% { transform: translate(2px, -2px); }
+            4% { transform: translate(-2px, 2px); }
+            6% { transform: translate(0, 0); }
+            8% { transform: translate(3px, 0); }
+            10% { transform: translate(-3px, 0); }
+            12% { transform: translate(0, 0); }
+        }
+
+        .launch-button {
+            font-family: 'Arial Black', Arial, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #fff;
+            background: linear-gradient(45deg, #4b0082, #800080);
+            border: 2px solid #fff;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-shadow: 
+                -0.03em 0 red,
+                0.03em 0 cyan;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: glitchText 1s linear infinite;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .launch-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+            background: linear-gradient(45deg, #800080, #4b0082);
+        }
+
+        .lightning {
+            position: absolute;
+            width: 4px;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(128, 0, 128, 0.7));
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 5px rgba(128, 0, 128, 0.8);
+            animation: lightningStrike 1.5s ease-in-out infinite;
+            transform-origin: top;
+        }
+
+        .lightning::before,
+        .lightning::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 50px;
+            background: inherit;
+            box-shadow: inherit;
+        }
+
+        .lightning::before {
+            top: 50%;
+            transform: translateX(-10px) rotate(15deg);
+        }
+
+        .lightning::after {
+            top: 80%;
+            transform: translateX(10px) rotate(-15deg);
+        }
+
+        @keyframes lightningStrike {
+            0%, 20%, 40%, 60%, 80% {
+                opacity: 0;
+                transform: translateY(-50vh) scale(0.8);
+            }
+            10%, 30%, 50%, 70% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(50vh) scale(0.8);
+            }
+        }
+
+        .lightning:nth-child(1) { top: 10%; left: 15%; animation-duration: 1.8s; animation-delay: 0s; }
+        .lightning:nth-child(2) { top: 20%; left: 35%; animation-duration: 2s; animation-delay: 0.4s; }
+        .lightning:nth-child(3) { top: 5%; left: 55%; animation-duration: 1.6s; animation-delay: 0.8s; }
+        .lightning:nth-child(4) { top: 15%; left: 75%; animation-duration: 1.9s; animation-delay: 1.2s; }
+        .lightning:nth-child(5) { top: 25%; left: 25%; animation-duration: 2.1s; animation-delay: 0.6s; }
+        .lightning:nth-child(6) { top: 30%; left: 45%; animation-duration: 1.7s; animation-delay: 1s; }
+        .lightning:nth-child(7) { top: 8%; left: 65%; animation-duration: 2.2s; animation-delay: 0.2s; }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <div class="nexus-text">
+            Nexus
+            <span>Library</span>
+        </div>
+        <a href="comparison.html"><button class="launch-button">Launch Library</button></a>
+    </div>
+    <div class="lightning"></div>
+    <div class="lightning"></div>
+    <div class="lightning"></div>
+    <div class="lightning"></div>
+    <div class="lightning"></div>
+    <div class="lightning"></div>
+    <div class="lightning"></div>
+</body>
+</html>
